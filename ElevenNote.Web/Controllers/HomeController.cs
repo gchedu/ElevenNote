@@ -40,5 +40,12 @@ namespace ElevenNote.Web.Controllers
 
             return View();
         }
+
+        public ActionResult FizzBuzz()
+        {
+            ViewBag.Message = "FizBuzz View";
+
+            return View();
+        }
     }
 }
