@@ -1,0 +1,13 @@
+﻿<h1>Grant</h1>
+@{var maxNumberOfDaysBeforeKilling = 365; }
+
+    Number of Days Before Killing Enemy:
+<select name="theOption">
+    @for (var i = 0; i < maxNumberOfDaysBeforeKilling; i++)
+    {
+        <option value="@i">@i</option>
+    }
+</select>
+
+
+
