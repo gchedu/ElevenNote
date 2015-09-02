@@ -242,6 +242,7 @@
     <Content Include="Views\Home\FizzBuzz.cshtml" />
     <Content Include="Views\Game\Index.cshtml" />
     <Content Include="Views\Notes\Index.cshtml" />
+    <Content Include="Views\Notes\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -258,6 +259,10 @@
     <ProjectReference Include="..\ElevenNote.Models\ElevenNote.Models.csproj">
       <Project>{271eb7a4-3e07-4769-85cb-d02fe8282060}</Project>
       <Name>ElevenNote.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ElevenNote.Services\ElevenNote.Services.csproj">
+      <Project>{a5412e07-ff78-4206-8aa1-ccb50037c1a0}</Project>
+      <Name>ElevenNote.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

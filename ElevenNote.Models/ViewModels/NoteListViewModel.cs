@@ -18,7 +18,7 @@ namespace ElevenNote.Models.ViewModels
 
         [Display(Name = "Date Modified")]
         public DateTime? DateModified { get; set; } // ? means the attribute is nullable
-
+        [Display(Name = "Is Favorited")]
         public bool IsFavorite { get; set; }
     }
 }
