@@ -44,6 +44,10 @@ namespace ElevenNote.DataAccess
 
         public DbSet<Note> Notes { get; set; }
 
+        //Added this after
+        // I'll need a db set (a table) of okaytodelete named delete me
+        //public DbSet<OkayToDelete> DeleteMe { get; set; }
+
         #endregion
 
         #region Stuff to add because we're merging Identity Framework data creation with our own context
