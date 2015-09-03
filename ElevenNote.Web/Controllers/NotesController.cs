@@ -36,6 +36,7 @@ namespace ElevenNote.Web.Controllers
             return View();
         }
 
+        [ValidateInput(false)]
         [HttpPost]
         [ActionName("Create")]
         public ActionResult CreatePost(NoteEditViewModel model)
@@ -49,6 +50,70 @@ namespace ElevenNote.Web.Controllers
                 return RedirectToAction("Index");
             }
             return View(model);
+        }
+
+        [HttpGet]
+        [ActionName("Edit")]
+        public ActionResult EditGet(int id)
+        {
+            var noteService = new NoteService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            return View(noteService.GetById(id, userId));
+        }
+
+        [ValidateInput(false)]
+        [HttpPost]
+        [ActionName("Edit")]
+        public ActionResult EditPost(NoteEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var noteService = new NoteService();
+                var userId = Guid.Parse(User.Identity.GetUserId());
+                var result = noteService.Update(model, userId);
+                TempData.Add("Result", result ? "Not update." : "Note not updated.");
+                return RedirectToAction("Index");
+            }
+            return View(model);
+
+        }
+        [HttpGet]
+        [ActionName("Delete")]
+        public ActionResult DeleteGet(int id)
+        {
+            var noteService = new NoteService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            return View(noteService.GetById(id, userId));
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeletePost(int id)
+        {
+            
+                var noteService = new NoteService();
+                var userId = Guid.Parse(User.Identity.GetUserId());
+                var result = noteService.Delete(id, userId);
+                TempData.Add("Result", result ? "Not update." : "Note not updated.");
+                return RedirectToAction("Index");
+            
+
+        }
+
+        public ActionResult Details(int id)
+        {
+            var noteService = new NoteService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            return View(noteService.GetById(id, userId));
+        }
+
+      
+        public ActionResult Favorite(int id)
+        {
+            var noteService = new NoteService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            noteService.ToggleFavorite(id, userId);
+            return RedirectToAction("Index") ;
         }
     }
 }

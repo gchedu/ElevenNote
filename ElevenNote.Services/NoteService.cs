@@ -75,7 +75,8 @@ namespace ElevenNote.Services
                               {
                                   Contents = note.Contents,
                                   Id = note.Id,
-                                  Title = note.Title
+                                  Title = note.Title,
+                                  IsFavorite = note.IsFavorite
                               }).SingleOrDefault();
 
                 return result;
@@ -100,6 +101,7 @@ namespace ElevenNote.Services
                 // Update the note.
                 note.Contents = model.Contents;
                 note.Title = model.Title;
+                note.IsFavorite = model.IsFavorite;
                 note.DateModified = DateTime.UtcNow;
 
                 // Save the changes to the database.
